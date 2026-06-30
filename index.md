@@ -4,7 +4,7 @@ layout: homepage
 
 ## About Me
 
-I am an undergraduate student in the Department of Applied AI at Hansung University, with interests in 3D Computer Vision and Generative AI.
+I am interested in 3D Computer Vision and Generative AI.
 
 ## News
 

@@ -4,11 +4,9 @@ layout: homepage
 
 ## About Me
 
-I am interested in 3D Gaussian Splatting (3DGS), Discrete Diffusion Multimodal Language Models (dMLLMs).
+I am an undergraduate student in the Department of Applied AI at Hansung University. I am interested in 3D Vision and Generative AI.
 
 ## News
-
-- **[May. 2026]** SCIE paper has been published (_BMC Bioinformatics_ JCR IF=3.5 (Q1)).
 
 {% include_relative _includes/publications.md %}
 

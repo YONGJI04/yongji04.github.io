@@ -8,6 +8,8 @@ I am interested in 3D Computer Vision and Generative AI.
 
 ## News
 
+{% include_relative _includes/news.md %}
+
 {% if site.data.publications.main.size > 0 %}
 {% include_relative _includes/publications.md %}
 {% endif %}

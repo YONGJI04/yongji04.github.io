@@ -80,28 +80,30 @@ LINES = [
     # --- HONORS ---
     (LEFT, 514.12, "H", REG, 11), (49.4, 514.52, "ONORS", REG, 9),
     ("RULE", 511.02),
-    (LEFT, 494.12, "3rd Place (3/1,087), LG Aimers 9th Online Hackathon, DACON, 2026", REG, 11),
-    (LEFT, 475.02, "Top 7% (19/261), AI Agent Behavior Inference Challenge, DACON, 2026", REG, 11),
+    (LEFT, 494.12, "3rd Place, Landslide Scar Detection, 2026 National Park AI Challenge, AIFactory, 2026", REG, 11),
+    (LEFT, 475.02, "3rd Place, Dead Conifer Detection, 2026 National Park AI Challenge, AIFactory, 2026", REG, 11),
+    (LEFT, 455.92, "3rd Place (3/1,087), LG Aimers 9th Online Hackathon, DACON, 2026", REG, 11),
+    (LEFT, 436.82, "Top 7% (19/261), AI Agent Behavior Inference Challenge, DACON, 2026", REG, 11),
 
     # --- PROJECTS ---
-    (LEFT, 446.42, "P", REG, 11), (47.7, 446.82, "ROJECTS", REG, 9),
-    ("RULE", 443.32),
-    (LEFT, 426.42, "-", REG, 11),
-    (INDENT, 426.42, "A Study on the Reasoning Emergence and Test-Time Scaling in Small Vision-Language Model", BOLD, 11),
-    (INDENT, 407.32, "Comprehension and Generation via Reinforcement Learning with Perceptual Reward", BOLD, 11),
-    (INDENT, 392.13, "NRF, 2026-2028", ITALIC, 11),
-    (LEFT, 371.45, "-", REG, 11),
-    (INDENT, 371.45, "Multi-Pipeline 3D Reconstruction and Scan-to-CAD Registration System (Team SCRS)", BOLD, 11),
-    (INDENT, 355.44, "Hansung Univ.·KIST AI·SW Industry-Academic Collaboration Project, Apr.–Jul. 2026", ITALIC, 11),
+    (LEFT, 408.22, "P", REG, 11), (47.7, 408.62, "ROJECTS", REG, 9),
+    ("RULE", 405.12),
+    (LEFT, 388.22, "-", REG, 11),
+    (INDENT, 388.22, "A Study on the Reasoning Emergence and Test-Time Scaling in Small Vision-Language Model", BOLD, 11),
+    (INDENT, 369.12, "Comprehension and Generation via Reinforcement Learning with Perceptual Reward", BOLD, 11),
+    (INDENT, 353.93, "NRF, 2026-2028", ITALIC, 11),
+    (LEFT, 333.25, "-", REG, 11),
+    (INDENT, 333.25, "Multi-Pipeline 3D Reconstruction and Scan-to-CAD Registration System (Team SCRS)", BOLD, 11),
+    (INDENT, 317.24, "Hansung Univ.·KIST AI·SW Industry-Academic Collaboration Project, Apr.–Jul. 2026", ITALIC, 11),
 
     # --- PUBLICATIONS ---
-    (LEFT, 327.75, "P", REG, 11), (47.7, 328.43, "UBLICATIONS", REG, 9),
-    ("RULE", 326.23),
-    (LEFT, 307.75, "-", REG, 11),
-    (INDENT, 307.75, "An Integrated Scan-to-CAD Pipeline for RGB Image-Based S²-2DGS 3D Reconstruction", BOLD, 11),
-    (INDENT, 288.65, "and CAD Registration", BOLD, 11),
-    (INDENT, 272.64, "S. Seo, J. Park, J. Choi, and H. Oh (Corr.)", ITALIC, 11),
-    (INDENT, 257.44, "IEIE, Submitted, 2026", ITALIC, 11),
+    (LEFT, 289.55, "P", REG, 11), (47.7, 290.23, "UBLICATIONS", REG, 9),
+    ("RULE", 288.03),
+    (LEFT, 269.55, "-", REG, 11),
+    (INDENT, 269.55, "An Integrated Scan-to-CAD Pipeline for RGB Image-Based S²-2DGS 3D Reconstruction", BOLD, 11),
+    (INDENT, 250.45, "and CAD Registration", BOLD, 11),
+    (INDENT, 234.44, "S. Seo, J. Park, J. Choi, and H. Oh (Corr.)", ITALIC, 11),
+    (INDENT, 219.24, "IEIE, Submitted, 2026", ITALIC, 11),
 
     # --- ADD NEW ENTRIES ABOVE THIS LINE, using the deltas documented up top ---
 ]

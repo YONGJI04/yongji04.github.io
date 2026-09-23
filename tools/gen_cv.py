@@ -80,10 +80,10 @@ LINES = [
     # --- HONORS ---
     (LEFT, 514.12, "H", REG, 11), (49.4, 514.52, "ONORS", REG, 9),
     ("RULE", 511.02),
-    (LEFT, 494.12, "3rd Place, Landslide Scar Detection, 2026 National Park AI Challenge, AIFactory, 2026", REG, 11),
-    (LEFT, 475.02, "3rd Place, Dead Conifer Detection, 2026 National Park AI Challenge, AIFactory, 2026", REG, 11),
-    (LEFT, 455.92, "3rd Place (3/1,087), LG Aimers 9th Online Hackathon, DACON, 2026", REG, 11),
-    (LEFT, 436.82, "Top 7%, AI Agent Behavior Inference Challenge, DACON, 2026", REG, 11),
+    (LEFT, 494.12, "-", REG, 11), (INDENT, 494.12, "3rd Place, Landslide Scar Detection, 2026 National Park AI Challenge, AIFactory, 2026", REG, 11),
+    (LEFT, 475.02, "-", REG, 11), (INDENT, 475.02, "3rd Place, Dead Conifer Detection, 2026 National Park AI Challenge, AIFactory, 2026", REG, 11),
+    (LEFT, 455.92, "-", REG, 11), (INDENT, 455.92, "3rd Place (3/1,087), LG Aimers 9th Online Hackathon, DACON, 2026", REG, 11),
+    (LEFT, 436.82, "-", REG, 11), (INDENT, 436.82, "Top 7%, AI Agent Behavior Inference Challenge, DACON, 2026", REG, 11),
 
     # --- PROJECTS ---
     (LEFT, 408.22, "P", REG, 11), (47.7, 408.62, "ROJECTS", REG, 9),

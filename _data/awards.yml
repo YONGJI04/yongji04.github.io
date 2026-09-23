@@ -1,5 +1,13 @@
 main:
   - title: "3rd Place"
+    challenge: "Landslide Scar Detection — 2026 National Park Satellite Monitoring AI Challenge"
+    issuer: "AIFactory"
+    date: "2026.09"
+  - title: "3rd Place"
+    challenge: "Dead Conifer Detection — 2026 National Park Satellite Monitoring AI Challenge"
+    issuer: "AIFactory"
+    date: "2026.09"
+  - title: "3rd Place"
     challenge: "Pitch Control Success Probability Prediction — LG Aimers 9th Online Hackathon"
     issuer: "DACON · 3 / 1,087 teams · Score 1217.24"
     date: "2026.09"

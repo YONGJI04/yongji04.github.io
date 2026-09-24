@@ -29,6 +29,7 @@ REG, BOLD, ITALIC = "NanumGothic", "NanumGothicBold", "Times-Italic"
 SKY = (0.058824, 0.619608, 0.835294)  # #0F9ED5, the name color of the original CV
 INK = (0, 0, 0)
 GREY = (0.35, 0.35, 0.35)
+RULE = (0.78, 0.78, 0.78)  # light grey section underline
 
 LINE_STEP = 19.1     # line -> next line of the same style
 TO_SUB = 15.2        # title line -> its italic sub line
@@ -68,8 +69,8 @@ class CV:
             self.y -= SECTION_GAP - self.gap
         self.text(self.L, title, BOLD, 14, SKY)
         self.y -= TITLE_TO_RULE
-        self.c.setStrokeColorRGB(*SKY)
-        self.c.setLineWidth(1.0)
+        self.c.setStrokeColorRGB(*RULE)
+        self.c.setLineWidth(0.5)
         self.c.line(self.L - 5.4, self.y, self.R, self.y)
         self.y -= RULE_TO_ENTRY
 

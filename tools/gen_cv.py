@@ -196,6 +196,10 @@ def build(out=DEFAULT_OUT):
 
     cv.section("Projects")
     cv.entry(
+        ["Industry Collaboration Project"],
+        sub="LemonCloud, Sep. 2026 – Present",
+    )
+    cv.entry(
         ["A Study on the Reasoning Emergence and Test-Time Scaling in Small Vision-Language Model Comprehension and Generation via Reinforcement Learning with Perceptual Reward"],
         sub="NRF, 2026-2028",
     )

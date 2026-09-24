@@ -63,9 +63,9 @@ class CV:
         self.text(0, email, REG, BODY - 1, GREY, right=True)
         self.y -= 24 * K
         self.text(LEFT, role)
+        self.text(0, mobile, REG, BODY - 1, GREY, right=True)
         self.y -= 20 * K
         self.text(LEFT, address, REG, BODY - 1, GREY)
-        self.text(0, mobile, REG, BODY - 1, GREY, right=True)
         self.y -= 40 * K
 
     def section(self, title):
@@ -164,7 +164,7 @@ def build(out=DEFAULT_OUT):
     # ---------------- CONTENT: edit below ----------------
     cv.header(
         name="Jiyong Choi",
-        role="Undergraduate Student, Dept. of Applied AI, Hansung University (Mar. 2023 – Present)",
+        role="Undergraduate Student, Dept. of Applied AI, Hansung University",
         email="yongyong@hansung.ac.kr",
         mobile="+82-10-5787-4580",
         address="116 Samseongyoro, Seongbuk-gu, Seoul",

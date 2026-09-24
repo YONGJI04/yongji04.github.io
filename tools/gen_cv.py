@@ -35,7 +35,7 @@ LINE_STEP = 19.1     # line -> next line of the same style
 TO_SUB = 15.2        # title line -> its italic sub line
 ENTRY_GAP = 24.0     # last line of an entry -> title of the next entry
 SECTION_GAP = 42.0   # last line of a section -> next section title baseline
-TITLE_TO_RULE = 5.0
+TITLE_TO_RULE = 6.0
 RULE_TO_ENTRY = 24.0
 
 
@@ -67,7 +67,7 @@ class CV:
     def section(self, title):
         if self.gap is not None:
             self.y -= SECTION_GAP - self.gap
-        self.text(self.L, title, BOLD, 14, SKY)
+        self.text(self.L, title, BOLD, 17, SKY)
         self.y -= TITLE_TO_RULE
         self.c.setStrokeColorRGB(*RULE)
         self.c.setLineWidth(0.5)
@@ -117,6 +117,7 @@ class CV:
             ends.append((self.y, self.gap))
         self.L, self.I, self.R = LEFT, INDENT, RIGHT
         self.y, self.gap = min(ends, key=lambda e: e[0])
+        self.gap -= 10  # extra breathing room below the top two-column row
 
     def save(self):
         self.c.save()

@@ -29,16 +29,17 @@ REG, BOLD, ITALIC = "NanumGothic", "NanumGothicBold", "Times-Italic"
 SKY = (0.058824, 0.619608, 0.835294)  # #0F9ED5, the name color of the original CV
 INK = (0, 0, 0)
 GREY = (0.35, 0.35, 0.35)
-RULE = (0.54, 0.54, 0.54)  # light grey section underline
+NAVY = (0.016, 0.200, 0.380)  # #043361, the heading color of the main site
+RULE = (0.35, 0.35, 0.35)  # section underline
 
-BODY = 12.5          # body font size; everything below scales with it
+BODY = 11.5          # body font size; everything below scales with it
 K = BODY / 11.0
-TITLE_SIZE = 19
+TITLE_SIZE = 13.5
 LINE_STEP = 19.1 * K     # line -> next line of the same style
 TO_SUB = 15.2 * K        # title line -> its italic sub line
 ENTRY_GAP = 24.0 * K     # last line of an entry -> title of the next entry
 SECTION_GAP = 44.0 * K   # last line of a section -> next section title baseline
-TITLE_TO_RULE = 7.0
+TITLE_TO_RULE = 5.5
 RULE_TO_ENTRY = 24.0 * K
 
 
@@ -70,7 +71,7 @@ class CV:
     def section(self, title):
         if self.gap is not None:
             self.y -= SECTION_GAP - self.gap
-        self.text(self.L, title, BOLD, TITLE_SIZE, SKY)
+        self.text(self.L, title, BOLD, TITLE_SIZE, NAVY)
         self.y -= TITLE_TO_RULE
         self.c.setStrokeColorRGB(*RULE)
         self.c.setLineWidth(0.5)
@@ -163,7 +164,7 @@ def build(out=DEFAULT_OUT):
     # ---------------- CONTENT: edit below ----------------
     cv.header(
         name="Jiyong Choi",
-        role="B.S. Student, Dept. of Applied AI, Hansung University (Mar. 2023 – Present)",
+        role="Undergraduate Student, Dept. of Applied AI, Hansung University (Mar. 2023 – Present)",
         email="yongyong@hansung.ac.kr",
         mobile="+82-10-5787-4580",
         address="116 Samseongyoro, Seongbuk-gu, Seoul",
@@ -176,8 +177,7 @@ def build(out=DEFAULT_OUT):
 
     def experience(c):
         c.section("Experience")
-        c.entry(["Visual Intelligence Lab."], sub="Undergraduate Intern, Advisor: Heeseok Oh",
-                right="Seoul, Rep. Korea")
+        c.entry(["Visual Intelligence Lab."], sub="Undergraduate Intern, Advisor: Heeseok Oh")
 
     cv.columns(interests, experience, ratio=0.3)
 

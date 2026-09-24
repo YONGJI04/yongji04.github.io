@@ -31,12 +31,15 @@ INK = (0, 0, 0)
 GREY = (0.35, 0.35, 0.35)
 RULE = (0.54, 0.54, 0.54)  # light grey section underline
 
-LINE_STEP = 19.1     # line -> next line of the same style
-TO_SUB = 15.2        # title line -> its italic sub line
-ENTRY_GAP = 24.0     # last line of an entry -> title of the next entry
-SECTION_GAP = 42.0   # last line of a section -> next section title baseline
-TITLE_TO_RULE = 6.0
-RULE_TO_ENTRY = 24.0
+BODY = 12.5          # body font size; everything below scales with it
+K = BODY / 11.0
+TITLE_SIZE = 19
+LINE_STEP = 19.1 * K     # line -> next line of the same style
+TO_SUB = 15.2 * K        # title line -> its italic sub line
+ENTRY_GAP = 24.0 * K     # last line of an entry -> title of the next entry
+SECTION_GAP = 44.0 * K   # last line of a section -> next section title baseline
+TITLE_TO_RULE = 7.0
+RULE_TO_ENTRY = 24.0 * K
 
 
 class CV:
@@ -47,7 +50,7 @@ class CV:
         self.L, self.I, self.R = LEFT, INDENT, RIGHT  # column-local left / indent / right edges
         self.gap = None  # distance already spent below the previous section's last line
 
-    def text(self, x, s, font=REG, size=11, color=INK, right=False):
+    def text(self, x, s, font=REG, size=BODY, color=INK, right=False):
         w = pdfmetrics.stringWidth(s, font, size)
         self.c.setFillColorRGB(*color)
         self.c.setFont(font, size)
@@ -55,19 +58,19 @@ class CV:
         return w
 
     def header(self, name, role, email, mobile, address):
-        self.text(LEFT, name, BOLD, 22, SKY)
-        self.text(0, email, REG, 10.5, GREY, right=True)
-        self.y -= 21
-        self.text(LEFT, role, REG, 11)
-        self.text(0, mobile, REG, 10.5, GREY, right=True)
-        self.y -= 18
-        self.text(LEFT, address, REG, 10.5, GREY)
-        self.y -= 34
+        self.text(LEFT, name, BOLD, 20, SKY)
+        self.text(0, email, REG, BODY - 1, GREY, right=True)
+        self.y -= 24 * K
+        self.text(LEFT, role)
+        self.y -= 20 * K
+        self.text(LEFT, address, REG, BODY - 1, GREY)
+        self.text(0, mobile, REG, BODY - 1, GREY, right=True)
+        self.y -= 40 * K
 
     def section(self, title):
         if self.gap is not None:
             self.y -= SECTION_GAP - self.gap
-        self.text(self.L, title, BOLD, 17, SKY)
+        self.text(self.L, title, BOLD, TITLE_SIZE, SKY)
         self.y -= TITLE_TO_RULE
         self.c.setStrokeColorRGB(*RULE)
         self.c.setLineWidth(0.5)
@@ -83,22 +86,46 @@ class CV:
 
     def entry(self, title_lines, sub=None, sub2=None, right=None, right_sub=None):
         self.text(self.L, "-")
+        title_lines = [w for t in title_lines for w in self.wrap(t)]
         for i, line in enumerate(title_lines):
             self.text(self.I, line, BOLD)
             if i == 0 and right:
-                self.text(0, right, REG, 11, right=True)
+                self.text(0, right, REG, right=True)
             if i < len(title_lines) - 1:
                 self.y -= LINE_STEP
         if sub:
             self.y -= TO_SUB
             self.text(self.I, sub, ITALIC)
             if right_sub:
-                self.text(0, right_sub, ITALIC, 11, right=True)
+                self.text(0, right_sub, ITALIC, right=True)
         if sub2:
             self.y -= TO_SUB
             self.text(self.I, sub2, ITALIC)
         self.y -= ENTRY_GAP
         self.gap = ENTRY_GAP
+
+    def wrap(self, s):
+        """Word wrap a bold title to the column width, balancing line lengths (no one-word last line)."""
+        def greedy(limit):
+            lines, cur = [], ""
+            for word in s.split():
+                trial = (cur + " " + word).strip()
+                if cur and pdfmetrics.stringWidth(trial, BOLD, BODY) > limit:
+                    lines.append(cur)
+                    cur = word
+                else:
+                    cur = trial
+            return lines + [cur]
+        limit = self.R - self.I - 4
+        n = len(greedy(limit))
+        lo, hi = limit / 2, limit
+        for _ in range(20):
+            mid = (lo + hi) / 2
+            if len(greedy(mid)) <= n:
+                hi = mid
+            else:
+                lo = mid
+        return greedy(hi)
 
     def bullet(self, s):
         self.text(self.L, "-")
@@ -106,8 +133,9 @@ class CV:
         self.y -= LINE_STEP
         self.gap = LINE_STEP
 
-    def columns(self, left, right, split=290.0, gutter=22.0):
+    def columns(self, left, right, ratio=0.3, gutter=22.0):
         """Run two section builders side by side; the cursor ends below the taller one."""
+        split = LEFT + ratio * (RIGHT - LEFT)
         top, ends = self.y, []
         for build_col, (l, i, r) in ((left, (LEFT, INDENT, split)),
                                       (right, (split + gutter, split + gutter + 18, RIGHT))):
@@ -135,7 +163,7 @@ def build(out=DEFAULT_OUT):
     # ---------------- CONTENT: edit below ----------------
     cv.header(
         name="Jiyong Choi",
-        role="Undergraduate Student, Dept. of Applied AI, Hansung University",
+        role="B.S. Student, Dept. of Applied AI, Hansung University (Mar. 2023 – Present)",
         email="yongyong@hansung.ac.kr",
         mobile="+82-10-5787-4580",
         address="116 Samseongyoro, Seongbuk-gu, Seoul",
@@ -146,11 +174,12 @@ def build(out=DEFAULT_OUT):
         c.bullet("Generative AI")
         c.bullet("Computer Vision")
 
-    def education(c):
-        c.section("Education")
-        c.entry(["Hansung University"], sub="B.S. in Applied AI.", right_sub="Mar. 2023 – Present")
+    def experience(c):
+        c.section("Experience")
+        c.entry(["Visual Intelligence Lab."], sub="Undergraduate Intern, Advisor: Heeseok Oh",
+                right="Seoul, Rep. Korea")
 
-    cv.columns(interests, education)
+    cv.columns(interests, experience, ratio=0.3)
 
     cv.section("Honors & Awards")
     cv.award("3rd Place", ", Landslide Scar Detection, 2026 National Park AI Challenge, AIFactory, 2026")
@@ -160,26 +189,20 @@ def build(out=DEFAULT_OUT):
 
     cv.section("Publications")
     cv.entry(
-        ["An Integrated Scan-to-CAD Pipeline for RGB Image-Based S²-2DGS 3D Reconstruction",
-         "and CAD Registration"],
+        ["An Integrated Scan-to-CAD Pipeline for RGB Image-Based S²-2DGS 3D Reconstruction and CAD Registration"],
         sub="S. Seo, J. Park, J. Choi, and H. Oh (Corr.)",
         sub2="IEIE, Submitted, 2026",
     )
 
     cv.section("Projects")
     cv.entry(
-        ["A Study on the Reasoning Emergence and Test-Time Scaling in Small Vision-Language Model",
-         "Comprehension and Generation via Reinforcement Learning with Perceptual Reward"],
+        ["A Study on the Reasoning Emergence and Test-Time Scaling in Small Vision-Language Model Comprehension and Generation via Reinforcement Learning with Perceptual Reward"],
         sub="NRF, 2026-2028",
     )
     cv.entry(
         ["Multi-Pipeline 3D Reconstruction and Scan-to-CAD Registration System (Team SCRS)"],
         sub="Hansung Univ.·KIST AI·SW Industry-Academic Collaboration Project, Apr.–Jul. 2026",
     )
-
-    cv.section("Experience")
-    cv.entry(["Visual Intelligence Lab."], sub="Undergraduate Intern, Advisor: Heeseok Oh",
-             right="Seoul, Rep. Korea")
     # ---------------- CONTENT: end ----------------
 
     cv.save()

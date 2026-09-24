@@ -44,12 +44,13 @@ LEFT, INDENT, RIGHT, RULE_X0 = 41.4, 59.4, 558.9, 36.0
 pdfmetrics.registerFont(TTFont("NanumGothic", os.path.join(HERE, "fonts", "NanumGothic-Regular.ttf")))
 pdfmetrics.registerFont(TTFont("NanumGothicBold", os.path.join(HERE, "fonts", "NanumGothicBold.ttf")))
 REG, BOLD, ITALIC = "NanumGothic", "NanumGothicBold", "Times-Italic"
+SKY = (0.058824, 0.619608, 0.835294)  # name color from the original CV (#0F9ED5)
 
 # Each entry: (x, y_baseline, text, font, size) drawn left-aligned,
 # or ("R", right_x, y_baseline, text, font, size) drawn right-aligned.
 LINES = [
     # --- header ---
-    (LEFT, 786.52, "Jiyong Choi", BOLD, 13.5),
+    (LEFT, 786.52, "Jiyong Choi", BOLD, 13.5, SKY),
     ("R", RIGHT, 786.52, "Email: yongyong@hansung.ac.kr", REG, 11),
     (LEFT, 768.12, "Undergraduate Student, Dept. Applied AI", REG, 11),
     ("R", RIGHT, 768.12, "Mobile: +82-10-5787-4580", REG, 11),
@@ -122,9 +123,11 @@ def build():
             c.setFont(font, size)
             c.drawString(right_x - w, y, text)
         else:
-            x, y, text, font, size = item
+            x, y, text, font, size = item[:5]
+            c.setFillColorRGB(*(item[5] if len(item) > 5 else (0, 0, 0)))
             c.setFont(font, size)
             c.drawString(x, y, text)
+            c.setFillColorRGB(0, 0, 0)
     c.save()
 
     r = PdfReader(OUT_PATH)

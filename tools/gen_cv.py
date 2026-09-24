@@ -34,7 +34,7 @@ RULE = (0.35, 0.35, 0.35)  # section underline
 
 BODY = 11.5          # body font size; everything below scales with it
 K = BODY / 11.0
-TITLE_SIZE = 13.5
+TITLE_SIZE = 15.5
 LINE_STEP = 19.1 * K     # line -> next line of the same style
 TO_SUB = 15.2 * K        # title line -> its italic sub line
 ENTRY_GAP = 24.0 * K     # last line of an entry -> title of the next entry

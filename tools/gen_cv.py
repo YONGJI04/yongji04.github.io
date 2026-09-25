@@ -204,7 +204,7 @@ def build(out=DEFAULT_OUT):
         sub="Hansung Univ.·KIST AI·SW Industry-Academic Collaboration Project, Apr.–Jul. 2026",
     )
     cv.entry(
-        ["Industry Collaboration Project (Team A.P.I)"],
+        ["Industry-Linked Capstone Design Project (Team A.P.I)"],
         sub="Hansung Univ.·LemonCloud Industry-Academic Collaboration Project, Sep. 2026 – Present",
     )
     # ---------------- CONTENT: end ----------------

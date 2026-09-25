@@ -207,6 +207,11 @@ def build(out=DEFAULT_OUT):
         ["Industry-Linked Capstone Design Project (Team A.P.I)"],
         sub="Hansung Univ.·LemonCloud Capstone Design, Sep. 2026 – Present",
     )
+    cv.entry(
+        ["Hanjari: Bus Boarding Probability Service (Team Early Access)"],
+        sub="Hansung Univ. Open-Source AI·SW Convergence Project, Sep. 2026 – Present",
+        sub2="Role: AI & Data (data collection and modeling pipeline)",
+    )
     # ---------------- CONTENT: end ----------------
 
     cv.save()

@@ -4,7 +4,7 @@ layout: homepage
 
 ## About Me
 
-I am interested in 3D Computer Vision and Generative AI.
+I am interested in Computer Vision and Generative AI.
 
 ## News
 

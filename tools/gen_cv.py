@@ -205,7 +205,7 @@ def build(out=DEFAULT_OUT):
     )
     cv.entry(
         ["Industry Collaboration Project (Team A.P.I)"],
-        sub="LemonCloud, Sep. 2026 – Present",
+        sub="Hansung Univ.·LemonCloud Industry-Academic Collaboration Project, Sep. 2026 – Present",
     )
     # ---------------- CONTENT: end ----------------
 

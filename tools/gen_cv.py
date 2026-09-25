@@ -200,15 +200,15 @@ def build(out=DEFAULT_OUT):
         sub="NRF, 2026-2028",
     )
     cv.entry(
-        ["Multi-Pipeline 3D Reconstruction and Scan-to-CAD Registration System (Team SCRS)"],
+        ["Multi-Pipeline 3D Reconstruction and Scan-to-CAD Registration System"],
         sub="Hansung Univ.·KIST AI·SW Industry-Academic Collaboration Project, Apr.–Jul. 2026",
     )
     cv.entry(
-        ["Industry-Linked Capstone Design Project (Team A.P.I)"],
+        ["Industry-Linked Capstone Design Project"],
         sub="Hansung Univ.·LemonCloud Capstone Design, Sep. 2026 – Present",
     )
     cv.entry(
-        ["Hanjari: Bus Boarding Probability Service (Team Early Access)"],
+        ["Hanjari: Bus Boarding Probability Service"],
         sub="Hansung Univ. Open-Source AI·SW Convergence Project, Sep. 2026 – Present",
         sub2="Role: AI & Data (data collection and modeling pipeline)",
     )

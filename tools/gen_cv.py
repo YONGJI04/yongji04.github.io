@@ -180,8 +180,8 @@ def build(out=DEFAULT_OUT):
     def experience(c):
         c.section("Experience")
         c.entry(["Visual Intelligence Lab."], sub="Undergraduate Intern, Advisor: Heeseok Oh", size=EXP_SIZE)
-        c.entry(["LG Aimers 9th (LG AI Research)"],
-                sub="AI R&D Program, LG Management Development Institute, Jun.–Sep. 2026",
+        c.entry(["LG AI Research, Academy Team"],
+                sub="Work Experience Program (LG Aimers 9th), R&D (AI), Jun.–Sep. 2026",
                 size=EXP_SIZE)
 
     cv.columns(interests, experience, ratio=0.3)

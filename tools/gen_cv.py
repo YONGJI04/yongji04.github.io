@@ -130,11 +130,11 @@ class CV:
                 lo = mid
         return greedy(hi)
 
-    def bullet(self, s):
+    def bullet(self, s, size=BODY, step=LINE_STEP):
         self.text(self.L, "-")
-        self.text(self.I, s)
-        self.y -= LINE_STEP
-        self.gap = LINE_STEP
+        self.text(self.I, s, REG, size)
+        self.y -= step
+        self.gap = step
 
     def columns(self, left, right, ratio=0.3, gutter=22.0):
         """Run two section builders side by side; the cursor ends below the taller one."""
@@ -147,7 +147,7 @@ class CV:
             build_col(self)
             ends.append((self.y, self.gap))
         self.L, self.I, self.R = LEFT, INDENT, RIGHT
-        self.y, self.gap = min(ends, key=lambda e: e[0])
+        self.y, self.gap = min(ends, key=lambda e: e[0] + e[1])  # column whose last line sits lowest
         self.gap += 17  # pull the section below the top two-column row up a little
 
     def save(self):
@@ -174,8 +174,10 @@ def build(out=DEFAULT_OUT):
 
     def interests(c):
         c.section("Interests")
-        c.bullet("Generative AI")
-        c.bullet("Computer Vision")
+        # one bullet per Experience entry, on the same baseline as its title
+        step = TO_SUB * EXP_SIZE / BODY + ENTRY_GAP
+        c.bullet("Generative AI", EXP_SIZE, step)
+        c.bullet("Computer Vision", EXP_SIZE, step)
 
     def experience(c):
         c.section("Experience")

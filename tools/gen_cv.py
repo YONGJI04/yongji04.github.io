@@ -146,7 +146,7 @@ class CV:
             ends.append((self.y, self.gap))
         self.L, self.I, self.R = LEFT, INDENT, RIGHT
         self.y, self.gap = min(ends, key=lambda e: e[0])
-        self.gap += 7  # pull the section below the top two-column row up a little
+        self.gap += 12  # pull the section below the top two-column row up a little
 
     def save(self):
         self.c.save()

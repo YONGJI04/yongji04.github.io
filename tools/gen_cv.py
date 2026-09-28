@@ -35,6 +35,7 @@ RULE = (0.35, 0.35, 0.35)  # section underline
 BODY = 11.5          # body font size; everything below scales with it
 K = BODY / 11.0
 TITLE_SIZE = 15.5
+EXP_SIZE = 10.5     # Experience entries sit a step below body size
 LINE_STEP = 19.1 * K     # line -> next line of the same style
 TO_SUB = 15.2 * K        # title line -> its italic sub line
 ENTRY_GAP = 24.0 * K     # last line of an entry -> title of the next entry
@@ -85,33 +86,34 @@ class CV:
         self.y -= LINE_STEP
         self.gap = LINE_STEP
 
-    def entry(self, title_lines, sub=None, sub2=None, right=None, right_sub=None):
+    def entry(self, title_lines, sub=None, sub2=None, right=None, right_sub=None, size=BODY):
+        s = size / BODY  # line spacing follows the entry's font size
         self.text(self.L, "-")
-        title_lines = [w for t in title_lines for w in self.wrap(t)]
+        title_lines = [w for t in title_lines for w in self.wrap(t, size)]
         for i, line in enumerate(title_lines):
-            self.text(self.I, line, BOLD)
+            self.text(self.I, line, BOLD, size)
             if i == 0 and right:
-                self.text(0, right, REG, right=True)
+                self.text(0, right, REG, size, right=True)
             if i < len(title_lines) - 1:
-                self.y -= LINE_STEP
+                self.y -= LINE_STEP * s
         if sub:
-            self.y -= TO_SUB
-            self.text(self.I, sub, ITALIC)
+            self.y -= TO_SUB * s
+            self.text(self.I, sub, ITALIC, size)
             if right_sub:
-                self.text(0, right_sub, ITALIC, right=True)
+                self.text(0, right_sub, ITALIC, size, right=True)
         if sub2:
-            self.y -= TO_SUB
-            self.text(self.I, sub2, ITALIC)
+            self.y -= TO_SUB * s
+            self.text(self.I, sub2, ITALIC, size)
         self.y -= ENTRY_GAP
         self.gap = ENTRY_GAP
 
-    def wrap(self, s):
+    def wrap(self, s, size=BODY):
         """Word wrap a bold title to the column width, balancing line lengths (no one-word last line)."""
         def greedy(limit):
             lines, cur = [], ""
             for word in s.split():
                 trial = (cur + " " + word).strip()
-                if cur and pdfmetrics.stringWidth(trial, BOLD, BODY) > limit:
+                if cur and pdfmetrics.stringWidth(trial, BOLD, size) > limit:
                     lines.append(cur)
                     cur = word
                 else:
@@ -177,9 +179,9 @@ def build(out=DEFAULT_OUT):
 
     def experience(c):
         c.section("Experience")
-        c.entry(["Visual Intelligence Lab."], sub="Undergraduate Intern, Advisor: Heeseok Oh")
+        c.entry(["Visual Intelligence Lab."], sub="Undergraduate Intern, Advisor: Heeseok Oh", size=EXP_SIZE)
         c.entry(["LG AI Research (LG Management Development Institute)"],
-                sub="AI R&D Program, Jun. 2026 – Sep. 2026")
+                sub="AI R&D Program, Jun. 2026 – Sep. 2026", size=EXP_SIZE)
 
     cv.columns(interests, experience, ratio=0.3)
 

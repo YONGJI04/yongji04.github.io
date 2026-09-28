@@ -148,6 +148,7 @@ class CV:
             ends.append((self.y, self.gap))
         self.L, self.I, self.R = LEFT, INDENT, RIGHT
         self.y, self.gap = min(ends, key=lambda e: e[0] + e[1])  # column whose last line sits lowest
+        self.gap += 6  # the ragged two-column row reads looser, so pull the next section up a bit
 
     def save(self):
         self.c.save()

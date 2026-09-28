@@ -148,7 +148,7 @@ class CV:
             ends.append((self.y, self.gap))
         self.L, self.I, self.R = LEFT, INDENT, RIGHT
         self.y, self.gap = min(ends, key=lambda e: e[0] + e[1])  # column whose last line sits lowest
-        self.gap += 17  # pull the section below the top two-column row up a little
+        self.gap += 22  # pull the section below the top two-column row up a little
 
     def save(self):
         self.c.save()
@@ -174,8 +174,7 @@ def build(out=DEFAULT_OUT):
 
     def interests(c):
         c.section("Interests")
-        # one bullet per Experience entry, on the same baseline as its title
-        step = TO_SUB * EXP_SIZE / BODY + ENTRY_GAP
+        step = LINE_STEP * EXP_SIZE / BODY  # same size as Experience, ordinary line spacing
         c.bullet("Generative AI", EXP_SIZE, step)
         c.bullet("Computer Vision", EXP_SIZE, step)
 

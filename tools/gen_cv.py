@@ -35,7 +35,6 @@ RULE = (0.35, 0.35, 0.35)  # section underline
 BODY = 11.5          # body font size; everything below scales with it
 K = BODY / 11.0
 TITLE_SIZE = 15.5
-EXP_SIZE = 10.5     # Experience entries sit a step below body size
 LINE_STEP = 19.1 * K     # line -> next line of the same style
 TO_SUB = 15.2 * K        # title line -> its italic sub line
 ENTRY_GAP = 24.0 * K     # last line of an entry -> title of the next entry
@@ -172,20 +171,13 @@ def build(out=DEFAULT_OUT):
         address="116 Samseongyoro, Seongbuk-gu, Seoul",
     )
 
-    def interests(c):
-        c.section("Interests")
-        step = LINE_STEP * EXP_SIZE / BODY  # same size as Experience, ordinary line spacing
-        c.bullet("Generative AI", EXP_SIZE, step)
-        c.bullet("Computer Vision", EXP_SIZE, step)
+    cv.section("Interests")
+    cv.bullet("Generative AI, Computer Vision")
 
-    def experience(c):
-        c.section("Experience")
-        c.entry(["Visual Intelligence Lab."], sub="Undergraduate Intern, Advisor: Heeseok Oh", size=EXP_SIZE)
-        c.entry(["LG AI Research, Academy Team"],
-                sub="Work Experience Program (LG Aimers 9th), R&D (AI), Jun.–Sep. 2026",
-                size=EXP_SIZE)
-
-    cv.columns(interests, experience, ratio=0.3)
+    cv.section("Experience")
+    cv.entry(["Visual Intelligence Lab."], sub="Undergraduate Intern, Advisor: Heeseok Oh")
+    cv.entry(["LG AI Research, Academy Team"],
+             sub="Work Experience Program (LG Aimers 9th), R&D (AI), Jun.–Sep. 2026")
 
     cv.section("Honors & Awards")
     cv.award("3rd Place", ", Landslide Scar Detection, 2026 National Park AI Challenge, AIFactory, 2026")

@@ -173,7 +173,7 @@ def build(out=DEFAULT_OUT):
 
     def interests(c):
         c.section("Interests")
-        step = LINE_STEP * EXP_SIZE / BODY  # same size as Experience, ordinary line spacing
+        step = LINE_STEP  # same line spacing as the Honors & Awards list
         c.bullet("Generative AI", EXP_SIZE, step)
         c.bullet("Computer Vision", EXP_SIZE, step)
 

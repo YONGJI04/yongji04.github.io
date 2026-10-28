@@ -180,7 +180,7 @@ def build(out=DEFAULT_OUT):
 
     def experience(c):
         c.section("Experience")
-        c.entry(["Visual Intelligence Lab."], sub="Undergraduate Intern, Advisor: Heeseok Oh", size=EXP_SIZE)
+        c.entry(["Visual Intelligence Lab."], sub="Undergraduate Intern, Advisor: Heeseok Oh, Sep. 2026 – Present", size=EXP_SIZE)
         c.entry(["Futurex, AI Business Division"],
                 sub="R&D Intern, Bin-Picking Vision, Nov.–Dec. 2026",
                 size=EXP_SIZE)

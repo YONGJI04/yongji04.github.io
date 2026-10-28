@@ -180,6 +180,9 @@ def build(out=DEFAULT_OUT):
 
     def experience(c):
         c.section("Experience")
+        c.entry(["Futurex, AI Business Division"],
+                sub="R&D Intern, Bin-Picking Vision, Nov.–Dec. 2026",
+                size=EXP_SIZE)
         c.entry(["Visual Intelligence Lab."], sub="Undergraduate Intern, Advisor: Heeseok Oh", size=EXP_SIZE)
         c.entry(["LG AI Research, Academy Team"],
                 sub="Work Experience Program (LG Aimers 9th), R&D (AI), Jun.–Sep. 2026",

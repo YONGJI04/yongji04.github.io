@@ -184,9 +184,6 @@ def build(out=DEFAULT_OUT):
         c.entry(["Futurex, AI Business Division"],
                 sub="R&D Intern, Bin-Picking Vision, Nov.–Dec. 2026",
                 size=EXP_SIZE)
-        c.entry(["LG AI Research, Academy Team"],
-                sub="Work Experience Program (LG Aimers 9th), R&D (AI), Jun.–Sep. 2026",
-                size=EXP_SIZE)
 
     cv.columns(interests, experience, ratio=0.3)
 

@@ -1,5 +1,7 @@
 main:
   - date: "2026.10"
+    text: "Selected as R&D Intern at Futurex AI Business Division (bin-picking vision, Nov.–Dec. 2026)"
+  - date: "2026.10"
     text: "Paper accepted to IEIE (3rd author)"
   - date: "2026.09"
     text: "3rd Place, Landslide Scar Detection & Dead Conifer Detection, 2026 National Park AI Challenge (AIFactory)"

@@ -11,7 +11,9 @@
     <div class="experience-content">
       <div class="experience-school">{{ experience.school }}</div>
       <div class="experience-role">{{ experience.role }}</div>
+      {% if experience.advisor %}
       <div class="experience-advisor">Advisor: {{ experience.advisor }}</div>
+      {% endif %}
       <div class="experience-lab">
         {% if experience.lab_url %}
         <a href="{{ experience.lab_url }}" target="_blank" rel="noopener">{{ experience.lab }}</a>

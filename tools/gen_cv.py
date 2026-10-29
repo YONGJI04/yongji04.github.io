@@ -188,6 +188,7 @@ def build(out=DEFAULT_OUT):
     cv.columns(interests, experience, ratio=0.3)
 
     cv.section("Honors & Awards")
+    cv.award("1st Place", ", DAKER Synthetic Microstructure Hardness Prediction AI Hackathon, DACON, 2026")
     cv.award("3rd Place", ", Landslide Scar Detection, 2026 National Park AI Challenge, AIFactory, 2026")
     cv.award("3rd Place", ", Dead Conifer Detection, 2026 National Park AI Challenge, AIFactory, 2026")
     cv.award("3rd Place", " (3/1,087), LG Aimers 9th Online Hackathon, DACON, 2026")

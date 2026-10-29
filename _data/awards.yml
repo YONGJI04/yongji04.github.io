@@ -1,4 +1,8 @@
 main:
+  - title: "1st Place"
+    challenge: "Synthetic Microstructure Hardness Prediction — DAKER AI Hackathon"
+    issuer: "DACON"
+    date: "2026.10"
   - title: "3rd Place"
     challenge: "Landslide Scar Detection — 2026 National Park Satellite Monitoring AI Challenge"
     issuer: "AIFactory"

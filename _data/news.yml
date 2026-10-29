@@ -1,5 +1,7 @@
 main:
   - date: "2026.10"
+    text: "1st Place, DAKER Synthetic Microstructure Hardness Prediction AI Hackathon (DACON)"
+  - date: "2026.10"
     text: "Paper accepted to IEIE (3rd author)"
   - date: "2026.09"
     text: "3rd Place, Landslide Scar Detection & Dead Conifer Detection, 2026 National Park AI Challenge (AIFactory)"

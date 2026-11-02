@@ -192,7 +192,6 @@ def build(out=DEFAULT_OUT):
     cv.award("3rd Place", ", Landslide Scar Detection, 2026 National Park AI Challenge, AIFactory, 2026")
     cv.award("3rd Place", ", Dead Conifer Detection, 2026 National Park AI Challenge, AIFactory, 2026")
     cv.award("3rd Place", " (3/1,087), LG Aimers 9th Online Hackathon, DACON, 2026")
-    cv.award("Top 7%", ", AI Agent Behavior Inference Challenge, DACON, 2026")
 
     cv.section("Publications")
     cv.entry(

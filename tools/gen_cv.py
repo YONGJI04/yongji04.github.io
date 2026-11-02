@@ -81,8 +81,8 @@ class CV:
 
     def award(self, rank, rest):
         self.text(self.L, "-")
-        w = self.text(self.I, rank, BOLD, EXP_SIZE)  # same step as Experience: keeps the full contest name on one row
-        self.text(self.I + w, rest, REG, EXP_SIZE)
+        w = self.text(self.I, rank, BOLD)
+        self.text(self.I + w, rest)
         self.y -= LINE_STEP
         self.gap = LINE_STEP
 
@@ -188,7 +188,7 @@ def build(out=DEFAULT_OUT):
     cv.columns(interests, experience, ratio=0.3)
 
     cv.section("Honors & Awards")
-    cv.award("1st Place", ", Synthetic Microstructure-Based Material Property Prediction AI Competition, DACON, 2026")
+    cv.award("1st Place", ", Synthetic Microstructure Property Prediction AI Competition, DAKER·DACON, 2026")
     cv.award("3rd Place", ", Landslide Scar Detection, 2026 National Park AI Challenge, AIFactory, 2026")
     cv.award("3rd Place", ", Dead Conifer Detection, 2026 National Park AI Challenge, AIFactory, 2026")
     cv.award("3rd Place", " (3/1,087), LG Aimers 9th Online Hackathon, DACON, 2026")

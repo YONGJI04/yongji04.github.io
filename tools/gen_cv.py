@@ -82,6 +82,13 @@ class CV:
     def award(self, rank, rest):
         self.text(self.L, "-")
         w = self.text(self.I, rank, BOLD)
+        room = self.R - self.I - w
+        if pdfmetrics.stringWidth(rest, REG, BODY) > room:  # too long: break after the last comma that fits
+            cut = max(i for i, ch in enumerate(rest) if ch == "," and i > 0
+                      and pdfmetrics.stringWidth(rest[:i + 1], REG, BODY) <= room)
+            self.text(self.I + w, rest[:cut + 1])
+            self.y -= TO_SUB
+            w, rest = 0, rest[cut + 1:].lstrip()
         self.text(self.I + w, rest)
         self.y -= LINE_STEP
         self.gap = LINE_STEP
@@ -188,7 +195,7 @@ def build(out=DEFAULT_OUT):
     cv.columns(interests, experience, ratio=0.3)
 
     cv.section("Honors & Awards")
-    cv.award("1st Place", ", DAKER Synthetic Microstructure Hardness Prediction AI Hackathon, DACON, 2026")
+    cv.award("1st Place", ", Synthetic Microstructure-Based Material Property Prediction AI Competition, DAKER (DACON), 2026")
     cv.award("3rd Place", ", Landslide Scar Detection, 2026 National Park AI Challenge, AIFactory, 2026")
     cv.award("3rd Place", ", Dead Conifer Detection, 2026 National Park AI Challenge, AIFactory, 2026")
     cv.award("3rd Place", " (3/1,087), LG Aimers 9th Online Hackathon, DACON, 2026")

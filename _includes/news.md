@@ -1,5 +1,5 @@
 <div class="awards">
-  {% for item in site.data.news.main %}
+  {% for item in site.data.news.main limit:2 %}
   <div class="award-row">
     <div class="award-content">
       <div class="award-title">{{ item.text }}</div>

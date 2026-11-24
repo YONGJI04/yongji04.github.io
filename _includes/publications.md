@@ -5,18 +5,20 @@
 
 {% for link in site.data.publications.main %}
 
-<li>
+<li{% unless link.image %} style="min-height: 0; padding: 14px 0; margin: 0;"{% endunless %}>
 <div class="pub-row">
+  {% if link.image %}
   <div class="col-sm-3 abbr" style="position: relative;padding-right: 15px;padding-left: 15px;">
-    {% if link.image %} 
     <img src="{{ link.image }}" class="teaser img-fluid z-depth-1" style="width=100;height=40%">
     {% if link.conference_short %} 
     <abbr class="badge">{{ link.conference_short }}</abbr>
     {% endif %}
-    {% endif %}
   </div>
   <div class="col-sm-9" style="position: relative;padding-right: 15px;padding-left: 20px;">
-      <div class="title"><a href="{{ link.pdf }}">{{ link.title }}</a></div>
+  {% else %}
+  <div class="col-sm-9" style="position: relative;padding: 0;">
+  {% endif %}
+      <div class="title">{% if link.pdf %}<a href="{{ link.pdf }}">{{ link.title }}</a>{% else %}<span style="color: #222;">{{ link.title }}</span>{% endif %}</div>
       <div class="author">{{ link.authors }}</div>
       <div class="periodical"><em>{{ link.conference }}</em>
       </div>
@@ -43,7 +45,7 @@
   </div>
 </div>
 </li>
-<br>
+{% if link.image %}<br>{% endif %}
 
 {% endfor %}
 

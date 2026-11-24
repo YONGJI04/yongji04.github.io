@@ -59,7 +59,7 @@ class CV:
         self.c.drawString(self.R - w if right else x, self.y, s)
         return w
 
-    def header(self, name, role, email, mobile, address):
+    def header(self, name, role, email, mobile, address, linkedin):
         self.text(LEFT, name, BOLD, 20, SKY)
         self.text(0, email, REG, BODY - 1, GREY, right=True)
         self.y -= 24 * K
@@ -67,6 +67,8 @@ class CV:
         self.text(0, mobile, REG, BODY - 1, GREY, right=True)
         self.y -= 20 * K
         self.text(LEFT, address, REG, BODY - 1, GREY)
+        w = self.text(0, linkedin, REG, BODY - 1, GREY, right=True)
+        self.c.linkURL("https://www." + linkedin, (self.R - w, self.y - 3, self.R, self.y + BODY - 1))
         self.y -= 40 * K
 
     def section(self, title):
@@ -170,6 +172,7 @@ def build(out=DEFAULT_OUT):
         email="yongyong@hansung.ac.kr",
         mobile="+82-10-5787-4580",
         address="116 Samseongyoro, Seongbuk-gu, Seoul",
+        linkedin="linkedin.com/in/jiyong-choi-a8857a435",
     )
 
     def interests(c):

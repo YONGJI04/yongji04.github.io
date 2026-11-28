@@ -200,7 +200,7 @@ def build(out=DEFAULT_OUT):
     cv.entry(
         ["An Integrated Scan-to-CAD Pipeline for RGB Image-Based S²-2DGS 3D Reconstruction and CAD Registration"],
         sub="S. Seo*, J. Park*, J. Choi, and H. Oh (Corr.)",
-        sub2="IEIE, Accepted, 2026 (*Equal contribution)",
+        sub2="IEIE, 2026 (*Equal contribution)",
     )
 
     cv.section("Projects")

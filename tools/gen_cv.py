@@ -183,10 +183,10 @@ def build(out=DEFAULT_OUT):
 
     def experience(c):
         c.section("Experience")
-        c.entry(["Visual Intelligence Lab."], sub="Undergraduate Intern, Advisor: Heeseok Oh, Sep. 2026 – Present", size=EXP_SIZE)
         c.entry(["Futurex, AI Research Lab"],
                 sub="R&D Intern, Bin-Picking Vision, Nov. 2026 – Present",
                 size=EXP_SIZE)
+        c.entry(["Visual Intelligence Lab."], sub="Undergraduate Intern, Advisor: Heeseok Oh, Sep. 2026 – Present", size=EXP_SIZE)
 
     cv.columns(interests, experience, ratio=0.3)
 

@@ -1,5 +1,13 @@
 main:
 
+  - school: Futurex
+    location: Uiwang, South Korea
+    status: Nov. 2026 – Present
+    role: R&D Intern, Bin-Picking Vision
+    lab: AI Research Lab
+    lab_url: https://f2x.ai
+    logo: /assets/img/futurex-logo.png
+
   - school: Hansung University
     location: Seoul, South Korea
     status: Sep. 2026 – Present
@@ -8,11 +16,3 @@ main:
     lab: Visual Intelligence Lab.
     lab_url: https://sites.google.com/view/hs-vilab
     logo: /assets/img/hsu-logo.jpg
-
-  - school: Futurex
-    location: Uiwang, South Korea
-    status: Nov. 2026 – Present
-    role: R&D Intern, Bin-Picking Vision
-    lab: AI Research Lab
-    lab_url: https://f2x.ai
-    logo: /assets/img/futurex-logo.png
